@@ -32,6 +32,8 @@ app.get('/students/:id/:sign', (req, res, next)=> {
     res.json(filtered_students)
 })
 
+app.get(); //get all students
+
 
 app.listen(port,()=> {
 console.log('app is running');
