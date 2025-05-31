@@ -5,9 +5,9 @@ const app = express();
 const port = 5000
 
 app.use(bodyParser.json())
-import student_router from './apis/students_api.js';
+import course_router from './apis/courses_apis.js';
 
-app.use('/students', student_router)
+app.use('/courses',course_router)
 
 
 
