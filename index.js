@@ -52,6 +52,18 @@ app.get('/students/:id/:sign/:gender', (req, res, next)=> {
 
     res.json(students_gender)
 })
+app.get('/students/:id/:sign/:gender', (req, res, next)=> {
+    let {id, sign,gender} = req.params
+
+    let filtered_gender_students = []
+    if(sign=="lt"&& gender=="male"){
+        filtered_gender_students=students.filter(student=>student.id>id && student.gender=="Male")
+    }
+    else{
+        filtered_gender_students=students.filter(student=>student.id<id && student.gender=="Female")
+    }
+    res.json(filtered_gender_students)
+}) 
 
 
 
