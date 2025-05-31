@@ -32,7 +32,25 @@ app.get('/students/:id/:sign', (req, res, next)=> {
     res.json(filtered_students)
 })
 
-app.get(); //get all students
+app.get('/students/:id/:sign/:gender', (req, res, next)=> {
+    let {id, sign,gender} = req.params
+
+    let students_gender = []
+    if(sign == "lt"){
+         students_gender= students.filter(student => student.id < id)
+    }else  {
+      students_gender= students.filter(student => student.id > id)
+    }
+
+      if (gender == "M") {
+        students_gender = students_gender.filter(student => student.gender == "Male");
+    } else  {
+        students_gender = students_gender.filter(student => student.gender == "Female");
+    }
+
+
+    res.json(students_gender)
+})
 
 
 app.listen(port,()=> {
